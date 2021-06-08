@@ -1,27 +1,30 @@
-const express = require('express');
-const app = express();
-const path = require('path');
-const router = express.Router();
+const express = require('express')
+const app = express()
+const path = require('path')
+const port = 8080
 
-router.get('/',function(req,res){
-  res.sendFile(path.join(__dirname+'/views/home.html'));
-  //__dirname : It will resolve to your project folder.
+app.use(express.static(path.join(__dirname, "/images")));
+app.use(express.static(path.join(__dirname, "/css")));
+/*
+* Default route for the web app
+*/
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "home.html"));
+  });
+
+
+
+app.get("/account", (req, res) =>{
+  res.sendFile(path.join(__dirname, "/account.html"))
 });
 
-router.get('/about',function(req,res){
-  res.sendFile(path.join(__dirname+'/views/CWH.html'));
-});
+app.get("/CWH", (req, res) =>{
+    res.sendFile(path.join(__dirname, "/CWH.html"))
+  });
 
-router.get('/account',function(req,res){
-  res.sendFile(path.join(__dirname+'/views/account.html'));
-});
+  app.get("/signIn", (req, res) =>{
+    res.sendFile(path.join(__dirname, "/signIn.html"))
+  });
 
-router.get('/signIn',function(req,res){
-  res.sendFile(path.join(__dirname+'/views/signIn.html'));
-});
 
-//add the router
-app.use('/', router);
-app.listen(process.env.port || 8080);
-
-console.log('Running at Port 8080');
+app.listen(port, () => console.log(`App listening on port ${port}!`))

@@ -1,0 +1,32 @@
+.nav-container {
+    width: 100%;
+    text-align: center;
+    background-color: #e5eaecf1;
+    vertical-align:bottom;
+    line-height:120px;
+    height:120px;
+}
+
+.nav navbar-nav ul {
+    display: inline-block;
+    font-size: 18px;
+    margin: 20px;
+    vertical-align:bottom;
+    line-height:normal;   
+}
+
+.img-thumbnail {
+    position:absolute;
+    left:10px;
+    top:10px;
+    margin: 0px 15px 15px 0px;
+}
+.searchTerm{
+    margin: 15px 15px 15px 15px; 
+}
+.row{
+    margin: 50px 50px 50px 50px;  
+}
+.info-footer{
+    margin: 50px 50px 50px 50px;  
+}
