@@ -1,3 +1,8 @@
+/**** Amanda Lee
+ * Student number: 101630200
+ * WEB322 Section NCC
+ */
+
 const express = require('express')
 const app = express()
 const path = require('path')
