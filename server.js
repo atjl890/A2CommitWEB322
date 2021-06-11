@@ -32,4 +32,4 @@ app.get("/CWH", (req, res) =>{
   });
 
 
-app.listen(port, () => console.log(`App listening on port ${port}!`))
+app.listen(HTTP_PORT);
