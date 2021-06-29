@@ -5,6 +5,10 @@ const exphbs = require('express-handlebars');
 const app = express();
 app.engine(".hbs", exphbs({ extname: ".hbs" }));
 app.set('view engine', '.hbs');
+app.use(express.json());
+app.use(express.urlencoded({
+  extended: true
+}));
 
 app.use(express.static(__dirname + "/images"));
 /*
@@ -23,30 +27,47 @@ app.get("/", (req, res) => {
 
 
 app.get("/account", (req, res) =>{
-  res.sendFile(path.join(__dirname, "/account.html"))
+res.render('account', {
+  layout: false
+})
 });
 
 app.get("/CWH", (req, res) =>{
-    res.sendFile(path.join(__dirname, "/CWH.html"))
+    res.render('CWH', {
+      layout: false
+    })
   });
 
   app.get("/signIn", (req, res) =>{
-    res.sendFile(path.join(__dirname, "/signIn.html"))
+  const web ={signIn: true};
+  res.render('signIn',{
+
+    layout: false
+
   });
-app.post('/signInData', (req,res)=> {
-let emailErr;
-let passwordErr;
-  req.body = data;
+  });
+  app.post('/signIn', function(req, res) {
+    let data = req.body;
+    let Emailerror = false;
+    let Passerror = false;
 
-  if(data.inputEmail3.length ===0)
-  {
-emailErr = "Enter a valid email address"
-  }
-  if(data.inputPassword3.length ===0)
-  {
-passwordErr = "Enter a valid password"
-  }
+    if (data.inputEmail3.length ===0) {
+           errorU = "You did not enter a valid username";
 
-})
+    }
+   if(data.inputPassword3.length ===0) 
+    {
+     errorP = "You did not enter a valid password";
+    }
+    else { 
+          error ===false;
+    }
+    data.errorU = uError;
+  data.errorP= pError;
+    res.render("signIn", {
+     data : data,
+      layout: false
+    });
+});
 
 app.listen(HTTP_PORT);

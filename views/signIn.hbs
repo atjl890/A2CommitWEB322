@@ -53,17 +53,23 @@
 </div>
   <div style="margin:100px;">
    <h1>Sign in to WHC here</h1>
-    <form class="form-horizontal bg">
+    <form class="form-horizontal bg" action ="/signIn" method ="post">
       <div class="form-group">
         <label for="inputEmail3" class="col-sm-2 control-label">Enter Email</label>
         <div class="col-sm-10">
           <input type="email" class="form-control" id="inputEmail3" placeholder="Email" required>
+          {{#if data.errorU}}
+          <h4class ="eMsg">{{data.errorU}}</h4>
+          {{/if}}
         </div>
       </div>
       <div class="form-group">
         <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
         <div class="col-sm-10">
           <input type="password" class="form-control" id="inputPassword3" placeholder="Password" required>
+          {{#if data.errorP}}
+           <h4class ="eMsg">{{data.errorP}}</h4>
+           {{/if}}
         </div>
       </div>
       <div class="form-group">
@@ -86,31 +92,5 @@
     </form>
   </body>
 
-  <footer>
-    <div class = "row"  style="padding:40px;">
-      <div class="col-xs-2 col-md-2">
-    <address>
-      <strong>AMANDA DESIGN</strong><br>
-      5000 Nullptr Way<br>
-      San Francisco, CA 94103<br>
-      <abbr title="Phone">P:</abbr> (123) 456-7890
-    </address>
-    
-    <address>
-      <strong>Amanda Lee</strong><br>
-      <a href="mailto:#">amanda.lee@email.com</a>
-    </address>
-    </div>
-    <div class="col-xs-2 col-md-2">
-      <a href="#" class="fa fa-facebook fa-3x"></a>   </div>
-      <div class="col-xs-2 col-md-2">
-          <a href="#" class="fa fa-instagram fa-3x"></a>   </div>
-          <div class="col-xs-2 col-md-2">
-              <a href="#" class="fa fa-twitter fa-3x"></a> <h3><strong>Get help 24/7</strong></h3>  </div>
-              <div class="col-xs-2 col-md-2">
-                  <a href="#" class="fa fa-youtube fa-3x"></a>   </div>
-                  <div class="col-xs-2 col-md-2">
-                      <a href="#" class="fa fa-skype fa-3x"></a>   </div>
-  </div>
-  </footer>
+  
 </html>
