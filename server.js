@@ -12,6 +12,10 @@ const exphbs = require('express-handlebars');
 
 app.use(express.static(path.join(__dirname, "/images")));
 app.use(express.static(path.join(__dirname, "/css")));
+app.engine('.hbs', exphbs({ extname: '.hbs' }));
+app.set('view engine', '.hbs');
+
+
 /*
 * Default route for the web app
 */
